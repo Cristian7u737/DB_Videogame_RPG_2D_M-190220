@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `rpg_2d` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `rpg_2d`;
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: rpg_2d
 -- ------------------------------------------------------
--- Server version	8.0.26
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -116,6 +116,7 @@ CREATE TABLE `personaje` (
   `id_personaje` int NOT NULL,
   `id_inventario_FK` int NOT NULL,
   `id_jugador_FK` int NOT NULL,
+  `nombrePersonaje` varchar(45) NOT NULL,
   `numMaxEnemigosDerrotados` int NOT NULL,
   `misionesCumplidas` int NOT NULL,
   `posX` int NOT NULL,
@@ -135,7 +136,7 @@ CREATE TABLE `personaje` (
 
 LOCK TABLES `personaje` WRITE;
 /*!40000 ALTER TABLE `personaje` DISABLE KEYS */;
-INSERT INTO `personaje` VALUES (1,1,1,50,20,12,13,'01:30:46'),(2,2,2,30,10,12,13,'02:30:46'),(3,3,3,40,30,17,11,'30:00:46'),(4,4,4,30,10,23,25,'40:00:46'),(5,5,5,34,21,21,31,'15:30:46');
+INSERT INTO `personaje` VALUES (1,1,1,'cris777',50,20,12,13,'01:30:46'),(2,2,2,'dani666',30,10,12,13,'02:30:46'),(3,3,3,'pedro888',40,30,17,11,'30:00:46'),(4,4,4,'john444',30,10,23,25,'40:00:46'),(5,5,5,'max222',34,21,21,31,'15:30:46');
 /*!40000 ALTER TABLE `personaje` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -148,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-08 11:42:33
+-- Dump completed on 2022-11-08 22:36:51
