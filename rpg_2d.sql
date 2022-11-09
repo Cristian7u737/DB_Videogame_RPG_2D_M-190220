@@ -32,8 +32,8 @@ CREATE TABLE `inventario` (
   `icono` blob,
   PRIMARY KEY (`id_inventario`,`id_item_FK`),
   UNIQUE KEY `numSlot_UNIQUE` (`numSlot`),
-  KEY `id_item_FK_I_idx` (`id_item_FK`),
-  CONSTRAINT `id_item_FK_I` FOREIGN KEY (`id_item_FK`) REFERENCES `item` (`id_item`)
+  KEY `id_item_FK_II_idx` (`id_item_FK`),
+  CONSTRAINT `id_item_FK_II` FOREIGN KEY (`id_item_FK`) REFERENCES `item` (`id_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `item` (
-  `id_item` int NOT NULL,
+  `id_item` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `icono` blob,
   `descripcion` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE `item` (
   `acumulable` tinyint NOT NULL,
   `acumulacionMax` int NOT NULL,
   PRIMARY KEY (`id_item`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,14 +85,14 @@ DROP TABLE IF EXISTS `jugador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jugador` (
-  `id_jugador` int NOT NULL,
+  `id_jugador` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `correoElectronico` varchar(45) NOT NULL,
   `fechaRegistro` date NOT NULL,
   `contrasenia` varchar(45) NOT NULL,
   `avatar` blob,
   PRIMARY KEY (`id_jugador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ DROP TABLE IF EXISTS `personaje`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personaje` (
-  `id_personaje` int NOT NULL,
+  `id_personaje` int NOT NULL AUTO_INCREMENT,
   `id_inventario_FK` int NOT NULL,
   `id_jugador_FK` int NOT NULL,
   `nombrePersonaje` varchar(45) NOT NULL,
@@ -124,10 +124,10 @@ CREATE TABLE `personaje` (
   `totalTiempoJugado` time NOT NULL,
   PRIMARY KEY (`id_personaje`),
   KEY `id_inventario_FK_I_idx` (`id_inventario_FK`),
-  KEY `id_jugador_FK_I_idx` (`id_jugador_FK`),
+  KEY `id_jugador_FK_II_idx` (`id_jugador_FK`),
   CONSTRAINT `id_inventario_FK_I` FOREIGN KEY (`id_inventario_FK`) REFERENCES `inventario` (`id_inventario`),
-  CONSTRAINT `id_jugador_FK_I` FOREIGN KEY (`id_jugador_FK`) REFERENCES `jugador` (`id_jugador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `id_jugador_FK_II` FOREIGN KEY (`id_jugador_FK`) REFERENCES `jugador` (`id_jugador`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-08 22:36:51
+-- Dump completed on 2022-11-08 23:27:23
